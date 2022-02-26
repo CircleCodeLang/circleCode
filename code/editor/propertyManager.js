@@ -8,12 +8,15 @@ editor["propertyManager"] = {
                 return rune.properties.name
             }
         }
-        if (/^[a-zA-Z0-9_]+$/.test(after)) {
+        if (this.validId(after)) {
             return after
         }
 
 
         return rune.properties.name;
+    },
+    validId(name) {
+        return /^[a-zA-Z0-9_]+$/.test(name)
     },
 
     triggerChange () {
@@ -165,7 +168,10 @@ editor["propertyManager"] = {
                     inputType: "text",
                     type: "input",
                     value: v4,
-                    rune: r
+                    rune: r,
+                    allowedTest: function (r, a) {
+                        return editor.propertyManager.validId(a) ? a : r.properties.name
+                    }
                 })
             }
 
