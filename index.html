@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>CircleCode</title>
+    <link rel="stylesheet", href="main.css">
+
+    <script src="code/language.js"></script>
+    <script src="code/languages/EN.js"></script>
+
+    <script src="code/deps/JSON/cycle.js"></script>
+    <script src="code/deps/JSON/json2.js"></script>
+
+    <script src="code/editor/editor.js"></script>
+    <script src="code/editor/tools.js"></script>
+    <script src="code/editor/propertyManager.js"></script>
+
+    <script src="code/run/builder.js"></script>
+
+    <script src="code/main.js"></script>
+
+    <script src="code/main_module/mainMod.js"></script>
+    <script src="code/main_module/tabBasic.js"></script>
+    <script src="code/main_module/tabMath.js"></script>
+    <script src="code/main_module/tabClass.js"></script>
+    <script src="code/main_module/tabBasicTypes.js"></script>
+    <script src="code/main_module/EN.js"></script>
+
+</head>
+
+<body></body>
+
+    <div id="editor">
+        <canvas id="editc" onmouseover="editor.mouseStatus(true);" onmouseout="editor.mouseStatus(false);"></canvas>
+
+        <div id="eobjects">
+            
+        </div>
+        <div id="eproperties">
+        </div>
+    </div>
+
+    <div id="run">
+        <div id="rsettings">
+            <button onclick="builder.build()">Build</button>
+            <button onclick="builder.run()">Run</button>
+            <br>
+            <button onclick="downloadBuild()">Download js</button>
+        </div>
+        <div id="console"></div>
+    </div>
+
+    <div id="panel">
+        <button id="editorbtn" onclick="switchEditor()">editor</button>
+        <button id="runbtn" onclick="switchRun()">run</button>
+
+        <button onclick="save()">Save</button>
+        <input type="file" id="fileload" name="Load" accept=".csp" onchange="load()">
+    </div>
+
+    <script>mainMod.start()</script>
+
+    <script>start()</script>
+</body>

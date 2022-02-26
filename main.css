@@ -1,0 +1,137 @@
+body {
+    background-color: #333;
+
+    scrollbar-face-color: #646464;
+    scrollbar-base-color: #646464;
+    scrollbar-3dlight-color: #646464;
+    scrollbar-highlight-color: #646464;
+    scrollbar-track-color: #222;
+    scrollbar-arrow-color: #222;
+    scrollbar-shadow-color: #646464;
+}
+
+#editor {
+    background-color: #555;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0.5vh;
+    left:0px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+#editc {
+    background-color: #333;
+    position:absolute;
+    height: 100%;
+    width: 80%;
+}
+#eobjects {
+    position: relative;
+    left: 80%;
+    width: 20%;
+    height: 40%;
+    top: 60%;
+    background-color: #777;
+    scrollbar-color: #666;
+    overflow-y: scroll; height:40%;
+}
+#eproperties {
+    position: relative;
+    left: 80%;
+    bottom: 40%;
+    width: 20%;
+    height: 60%;
+    background-color: rgb(59, 59, 59);
+    scrollbar-color: rgb(160, 160, 160);
+    overflow-y: scroll; height:60%;
+}
+#eprop {
+    position: relative;
+    width: 94%;
+    left: 3%;
+    top: 2%;
+    height: 6vh;
+    background-color: rgb(44, 44, 44);
+    align-content: center;
+}
+#ept {
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    height: 80%;
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+#einp {
+    height: 50%;
+}
+
+
+#panel {
+    background-color: #666;
+    position: absolute;
+    bottom: 0.01vh;
+    right:0px;
+    left:0px;
+}
+#editorbtn {
+    height: 100%;
+    width: 25%;
+}
+#runbtn {
+    height: 100%;
+    width: 25%;
+}
+
+#run {
+    background-color: #555;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0.5vh;
+    left:0px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: none;
+}
+
+#rsettings {
+    background-color: rgb(83, 83, 83);
+    color: rgb(255,255,255);
+    position:absolute;
+    height: 100%;
+    width: 20%;
+}
+#console {
+    background-color: rgb(177, 177, 177);
+    position:absolute;
+    height: 100%;
+    width: 80%;
+    left: 20%;
+    overflow-y: scroll; height:80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar { width: 12px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #333;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #646464;}
+::-webkit-resizer { background-color: #666;}
