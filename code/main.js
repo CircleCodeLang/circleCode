@@ -1,4 +1,4 @@
-const CirclesVersion = "V0.1.0"
+const CirclesVersion = "V0.1.1"
 
 let data = {
     objects: {

@@ -132,11 +132,7 @@ mainMod["tab_math"] = {
                 {
                     type: "reference",
                     property: "toChange",
-                    name: "num",
-                    default: 0,
-                    convert (str) {
-                        return str
-                    }
+                    name: "num"
                 }
             ],
             activeFunction () {

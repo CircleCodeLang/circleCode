@@ -13,7 +13,20 @@ const builder = {
         }
     },
     build () {
-        code = "console.log(\"Running project made with CircleScript " + CirclesVersion + "\");\n"
+        
+
+        code = `console.log("Running project made with CircleScript ${CirclesVersion}");
+        let firstToExec;let lastToExec;let lengthToExec = 0;
+        function exec(circle) {
+            if (lengthToExec==0) {let a = [circle, null]; lengthToExec=1; firstToExec = a; lastToExec = a} 
+            else {let a = [circle, firstToExec]; lengthToExec+=1; firstToExec = a}
+        };
+        function execNext() {
+            let c = firstToExec[0]
+            firstToExec = firstToExec[1];
+            c.run();
+            lengthToExec -= 1;
+        };`
 
         let runesUsed = new Set()
 
@@ -105,7 +118,7 @@ const builder = {
                     for (line of lines) {
                         if ((typeof line.properties.activating !== "boolean" || line.properties.activating)) {
                             if ((!line.properties.signal || line.properties.signal == "finished")) {
-                                code += "this.p.c" + crs.indexOf(key) + ".run();"
+                                code += "exec(this.p.c" + crs.indexOf(key) + ");"
                             } else {
                                 if (additionalSignals[line.property.signal]) {
                                     additionalSignals[line.property.signal].push(key)
@@ -127,7 +140,7 @@ const builder = {
                 for (let n in additionalSignals) {
                     code += `s${n}(){`
                     for (let key of additionalSignals[n]) {
-                        code += "this.p.c" + crs.indexOf(key) + ".run();"
+                        code += "exec(this.p.c" + crs.indexOf(key) + ");"
                     }
                     code += "},"
                 }
@@ -217,7 +230,10 @@ const builder = {
 
         code += "let o;"
         for (start of data.initial_objects) {
-            code += `o = new obj_${start}(); if (o.activators.on_creation) {for (let a of o.activators.on_creation) {if(a[1]){a[1][0][a[1][1]]="${CirclesVersion}"};a[0].run();}};`
+            code += `o = new obj_${start}(); if (o.activators.on_creation) {for (let a of o.activators.on_creation) {if(a[1]){a[1][0][a[1][1]]="${CirclesVersion}"};exec(a[0]);}};`
         }
+
+        code += "while (lengthToExec > 0) {execNext()};"
+
     }
 }
